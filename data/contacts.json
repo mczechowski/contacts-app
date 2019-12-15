@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Krzysztof Piekarski",
+		"departament": "ABC",
+		"title": "Lider Zespołu",
+		"phone": "667458225"
+	},
+	{
+		"name": "Jan Nowak",
+		"departament": "LSSI",
+		"title": "Tester",
+		"phone": "667554425"
+	},
+	{
+		"name": "Tomasz Jakubiak",
+		"departament": "WDC",
+		"title": "Programista",
+		"phone": "655548225"
+	},
+	{
+		"name": "Dawid Traczykowski",
+		"departament": "ABC",
+		"title": "Analityk",
+		"phone": "687438225"
+	}
+]
