@@ -22,9 +22,9 @@ elements.hamburger1.addEventListener('click', () => {
     } else {
         changeDensity();
         elements.contactsList.style.fontSize = '2rem';
-        elements.contactsItemAll.forEach(e => {
-            e.style.margin = '.8rem 0rem';
-        })
+        for (const e of elements.contactsList.children) { // DOM traversing
+            e.style.margin = '.8rem 0rem'
+        }
     }
 
 });
@@ -35,13 +35,11 @@ elements.hamburger2.addEventListener('click', () => {
     } else {
         changeDensity();
         elements.contactsList.style.fontSize = '1.5rem';
-        console.log(elements.contactsItemAll)
-        elements.contactsItemAll.forEach(e => {
-            console.log(e);
-            e.style.margin = '.5rem 0rem';
-        })
+        for (const e of elements.contactsList.children) { // DOM traversing
+            //console.log(e);
+            e.style.margin = '.5rem 0rem'
+        }
     }
-
 });
 
 const changeDensity = () => {
@@ -57,6 +55,8 @@ async function getData() {
         const resultJson = await result.json();
         console.log(resultJson);
         return (resultJson);
+
+
     } catch (error) {
         console.log(error);
         alert('Błąd wczytywania danych')
@@ -122,3 +122,4 @@ function displayMatches() {
 
 elements.searchInput.addEventListener('change', displayMatches);
 elements.searchInput.addEventListener('keyup', displayMatches);
+
