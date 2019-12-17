@@ -1,8 +1,8 @@
 /* TODO
 - sorting contacts by name 
-- error message when fetch goes wrong
-- add event delegation to adding style before display items??
-- all doesnt work, singe is ok? - event delegation
++ error message when fetch goes wrong
++ add event delegation to adding style before display items??
+
 */
 
 //----------------- basic elements -------------------------------
@@ -13,6 +13,7 @@ const elements = {
     contactsList: document.querySelector('.contacts__list'),
     contactsItemAll: document.querySelectorAll('.contact__item'),
     searchInput: document.querySelector('.search__field'),
+    errorWarning: document.querySelector('.error__warning'),
 };
 
 //------------------- change list density ------------------------
@@ -51,7 +52,7 @@ const changeDensity = () => {
 //---------------------------- get data contacts ------------------------
 async function getData() {
     try {
-        const result = await fetch('/data/contacts.json');
+        const result = await fetch('/ddata/contacts.json');
         const resultJson = await result.json();
         console.log(resultJson);
         return (resultJson);
@@ -59,7 +60,13 @@ async function getData() {
 
     } catch (error) {
         console.log(error);
-        alert('Błąd wczytywania danych')
+        const errorMarkup = `
+            <div class="error__warning">
+                <p>Nie można załadować danych kontakowych. Odśwież stronę lub spróbuj później</p>
+            </div>
+        `;
+        elements.contactsList.innerHTML = errorMarkup;
+        //alert('Błąd wczytywania danych')
     }
 }
 
