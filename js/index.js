@@ -9,11 +9,10 @@
 const elements = {
     hamburger1: document.querySelector('.hamburger-1'),
     hamburger2: document.querySelector('.hamburger-2'),
-    contactsListItemAll: document.querySelectorAll('.contact__item--list'),
     contactsList: document.querySelector('.contacts__list'),
-    contactsItemAll: document.querySelectorAll('.contact__item'),
     searchInput: document.querySelector('.search__field'),
     errorWarning: document.querySelector('.error__warning'),
+    subList: document.querySelector('.contact__item--list.sub-list'),
 };
 
 //------------------- change list density ------------------------
@@ -24,7 +23,8 @@ elements.hamburger1.addEventListener('click', () => {
         changeDensity();
         elements.contactsList.style.fontSize = '1.9rem';
         for (const e of elements.contactsList.children) { // DOM traversing
-            e.style.margin = '.8rem 0rem'
+            e.style.margin = '.8rem 0rem';
+            e.children[1].style.display = 'grid';
         }
     }
 
@@ -35,11 +35,13 @@ elements.hamburger2.addEventListener('click', () => {
 
     } else {
         changeDensity();
-        elements.contactsList.style.fontSize = '1.5rem';
+        elements.contactsList.style.fontSize = '1.6rem';
         for (const e of elements.contactsList.children) { // DOM traversing
-            //console.log(e);
-            e.style.margin = '.5rem 0rem'
+            console.log(e.children[1]);
+            e.style.margin = '.5rem 0rem';
+            e.children[1].style.display = 'none';
         }
+    
     }
 });
 

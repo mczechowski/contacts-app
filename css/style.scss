@@ -148,7 +148,7 @@ main {
         padding-top: 9rem;
         margin: 0 0.5rem;
         font-size: $main-fontSize;
-        transition: all 0.2s ease-in-out;
+        //transition: all 0.2s ease-in-out;
         @media only screen and (max-width: 600px) {
             padding-top: 11rem;
             font-size: $mobile-fontSieze;
@@ -179,6 +179,7 @@ main {
             column-gap: 2rem;
             align-items: center;
             border-radius: 3px;
+            
             @media only screen and (max-width: 600px) {
                 grid-template-columns: 3fr 1fr 3fr 2fr;
                 font-size: $mobile-fontSieze;
@@ -210,3 +211,4 @@ main {
         }
     }
 }
+
