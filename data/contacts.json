@@ -2,25 +2,41 @@
 	{
 		"name": "Krzysztof Piekarski",
 		"departament": "ABC",
+		"group": "Zespół programistów I",
 		"title": "Lider Zespołu",
-		"phone": "667458225"
+		"location": "188B-1-108",
+		"phone": "667458225",
+		"secondPhone": "224784525",
+		"other": "Kierownik"
 	},
 	{
 		"name": "Jan Nowak",
 		"departament": "LSSI",
+		"group": "Zespół programistów I",
 		"title": "Tester",
-		"phone": "667554425"
+		"location": "188B-1-108",
+		"phone": "667554425",
+		"secondPhone": "225700525",
+		"other": ""
 	},
 	{
 		"name": "Tomasz Jakubiak",
 		"departament": "WDC",
+		"group": "Zespół teserów I",
 		"title": "Programista",
-		"phone": "655548225"
+		"location": "186-2-208",
+		"phone": "655548225",
+		"secondPhone": "2247844415",
+		"other": ""
 	},
 	{
 		"name": "Dawid Traczykowski",
 		"departament": "ABC",
+		"group": "Zespół programistów IV",
 		"title": "Analityk",
-		"phone": "687438225"
+		"location": "188B-2-255",
+		"phone": "687438225",
+		"secondPhone": "224554525",
+		"other": ""
 	}
 ]

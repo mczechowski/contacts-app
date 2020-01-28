@@ -22,7 +22,7 @@ elements.hamburger1.addEventListener('click', () => {
 
     } else {
         changeDensity();
-        elements.contactsList.style.fontSize = '2rem';
+        elements.contactsList.style.fontSize = '1.9rem';
         for (const e of elements.contactsList.children) { // DOM traversing
             e.style.margin = '.8rem 0rem'
         }
@@ -52,7 +52,7 @@ const changeDensity = () => {
 //---------------------------- get data contacts ------------------------
 async function getData() {
     try {
-        const result = await fetch('/ddata/contacts.json');
+        const result = await fetch('/data/contacts.json');
         const resultJson = await result.json();
         console.log(resultJson);
         return (resultJson);
@@ -80,8 +80,14 @@ getData().then(data => {
                 <ul class="contact__item--list">
                     <li class='name'>${person.name}</li>
                     <li class='departament'>${person.departament}</li>
-                    <li class='title'>${person.title}</li>
+                    <li class='location'>${person.location}</li>
                     <li class='phone'>${person.phone}</li>
+                </ul>
+                <ul class="contact__item--list sub-list">
+                       <li class="title">${person.title}</li>
+                       <li class="group">${person.group}</li>
+                       <li class="other">${person.other}</li>
+                       <li class="secondPhone">${person.secondPhone}</li>
                 </ul>
             </div>  
         `;
@@ -99,7 +105,7 @@ const clearContactsList = () => {
 const findMatches = (wordToMatch, contacts) => {
     return contacts.filter(person => {
         const regex = new RegExp(wordToMatch, 'gi');
-        return person.name.match(regex) || person.departament.match(regex) || person.phone.match(regex)
+        return person.name.match(regex) || person.departament.match(regex) || person.phone.match(regex) || person.secondPhone.match(regex)
     });
 }
 
@@ -113,13 +119,20 @@ function displayMatches() {
         const personName = person.name.replace(regex, `<span class="hl">${this.value}</span>`);
         const personDepartament = person.departament.replace(regex, `<span class="hl uppercase">${this.value}</span>`);
         const personPhone = person.phone.replace(regex, `<span class="hl">${this.value}</span>`);
+        const personSecondPhone = person.secondPhone.replace(regex, `<span class="hl">${this.value}</span>`);
         return `
         <div class="contact__item">
             <ul class="contact__item--list">
                 <li class='name'>${personName}</li>
                 <li class='departament'>${personDepartament}</li>
-                <li class='title'>${person.title}</li>
+                <li class='title'>${person.location}</li>
                 <li class='phone'>${personPhone}</li>
+            </ul>
+            <ul class="contact__item--list sub-list">
+                <li class="title">${person.title}</li>
+                <li class="group">${person.group}</li>
+                <li class="other">${person.other}</li>
+                <li class="secondPhone">${personSecondPhone}</li>
             </ul>
         </div>  
         `;

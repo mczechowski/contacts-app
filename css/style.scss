@@ -10,7 +10,14 @@ $backgroung: #ececec;
 $contacts-list: #ffffff;
 $seach-bar: #ffffff;
 $text-color: #918f8f;
-$error-warning: #C44933;
+$error-warning: #c44933;
+//--------------------------------------------------------------------
+
+//---------------------------------VARIABLES--------------------------
+$site-width: 1600px;
+$main-fontSize: 1.9rem;
+$subList-fontSize: 1.6rem;
+$mobile-fontSieze: 1.4rem;
 //--------------------------------------------------------------------
 
 html {
@@ -49,7 +56,7 @@ body {
 
         .search__field {
             padding-left: 2rem;
-            font-size: 2rem;
+            font-size: $main-fontSize;
             color: black;
             background: $seach-bar;
             height: 5.5rem;
@@ -57,7 +64,7 @@ body {
             border: none;
             border-radius: 5px;
             @media only screen and (max-width: 600px) {
-                font-size: 1.5rem;
+                font-size: $mobile-fontSieze;
             }
         }
     }
@@ -90,20 +97,20 @@ body {
 //------------------------------------------------------------------------------
 
 main {
-    max-width: 1920px;
+    max-width: $site-width;
     position: relative;
     top: 11rem;
     margin: 0 auto;
 }
 .contacts {
-    font-size: 2rem;
+    font-size: $main-fontSize;
     @media only screen and (max-width: 600px) {
-        font-size: 1.5rem;
+        font-size: $mobile-fontSieze;
     }
 
     //------------------------------------- CONTACTS TITLE --------------------------------
     .title__bar {
-        max-width: 1920px;
+        max-width: $site-width;
         background: $backgroung;
         position: fixed;
         //-----center position----
@@ -117,17 +124,14 @@ main {
 
     .title__bar--list {
         display: grid;
-        grid-template-columns: 3fr 1fr 4fr 2fr;
+        grid-template-columns: 3fr 3fr 2fr 2fr;
         column-gap: 2rem;
         margin: 0rem 2rem;
         align-items: center;
         color: $text-color;
         @media only screen and (max-width: 600px) {
-            grid-template-columns: 2fr 1fr 4fr 2fr;
+            grid-template-columns: 3fr 1fr 3fr 2fr;
             margin: 1rem 1rem;
-        }
-        @media only screen and (min-width: 1200px) {
-            grid-template-columns: 2fr 1fr 4fr 2fr;
         }
     }
     hr {
@@ -142,12 +146,12 @@ main {
     //---------------------------------------- CONTACTS LIST --------------------------------
     .contacts__list {
         padding-top: 9rem;
-        margin: 0 .5rem;
-        font-size: 2rem;
+        margin: 0 0.5rem;
+        font-size: $main-fontSize;
         transition: all 0.2s ease-in-out;
         @media only screen and (max-width: 600px) {
             padding-top: 11rem;
-            font-size: 1.5rem;
+            font-size: $mobile-fontSieze;
         }
         .error__warning {
             background: $error-warning;
@@ -159,40 +163,50 @@ main {
             margin: 0 auto;
         }
 
-		.contact__item {
+        .contact__item {
             margin: 0.8rem 0rem;
             transition: all 0.2s ease-in;
             &:hover {
                 box-shadow: 0 4px 2px -2px $main-header;
             }
-		}
+        }
 
         .contact__item--list {
             background: $contacts-list;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
             display: grid;
-            grid-template-columns: 3fr 1fr 4fr 2fr;
+            grid-template-columns: 3fr 3fr 2fr 2fr;
             column-gap: 2rem;
             align-items: center;
             border-radius: 3px;
             @media only screen and (max-width: 600px) {
-                grid-template-columns: 2fr 1fr 4fr 2fr;
-                font-size: 1.5rem;
+                grid-template-columns: 3fr 1fr 3fr 2fr;
+                font-size: $mobile-fontSieze;
                 margin: 0.5rem 0rem;
                 padding: 1rem 1rem;
+
+                .name {
+                    min-width: 88px;
+                }
+                .departament {
+                    min-width: 41px;
+                }
             }
-            @media only screen and (min-width: 1200px) {
-                grid-template-columns: 2fr 1fr 4fr 2fr;
-			}
-			
-			.hl {
-				border-bottom: $main-header 2px solid;
-				text-transform: capitalize;
-			}
-			.uppercase{
-				text-transform: uppercase;
-			}
-		  
-		        }
+
+            .hl {
+                border-bottom: $main-header 2px solid;
+                text-transform: capitalize;
+            }
+            .uppercase {
+                text-transform: uppercase;
+            }
+            &.sub-list {
+                font-size: $subList-fontSize;
+                padding-top: 0rem;
+                @media only screen and (max-width: 600px) {
+                    display: none;
+                }
+            }
+        }
     }
 }
