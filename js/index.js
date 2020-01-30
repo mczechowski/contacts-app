@@ -2,7 +2,6 @@
 - sorting contacts by name 
 + error message when fetch goes wrong
 + add event delegation to adding style before display items??
-
 */
 
 //----------------- basic elements -------------------------------
