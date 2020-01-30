@@ -9,6 +9,7 @@ const elements = {
     hamburger1: document.querySelector('.hamburger-1'),
     hamburger2: document.querySelector('.hamburger-2'),
     contactsList: document.querySelector('.contacts__list'),
+    contactItem: document.querySelector('.contact__item'),
     searchInput: document.querySelector('.search__field'),
     errorWarning: document.querySelector('.error__warning'),
     subList: document.querySelector('.contact__item--list.sub-list'),
@@ -49,6 +50,14 @@ const changeDensity = () => {
     elements.hamburger2.classList.toggle('active');
 };
 
+elements.contactsList.addEventListener('click', e => {
+    //dziala na dane z pliku html a nie pobranie z jsona
+    //create high density class in css
+    //toggle this class
+    console.log(e.target.closest('.contact__item'))
+    e.target.closest('.contact__item').style.fontSize = '1.6rem';
+    
+});
 
 //---------------------------- get data contacts ------------------------
 async function getData() {
