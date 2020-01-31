@@ -21,7 +21,7 @@ elements.hamburger1.addEventListener('click', () => {
         changeDensity();
         elements.contactsList.classList.remove('density');
         for (const e of elements.contactsList.children) { // DOM traversing
-            e.classList.toggle('density');
+            e.classList.remove('density');
             e.children[1].classList.remove('density');
             // console.log(e)
         }
@@ -33,7 +33,7 @@ elements.hamburger2.addEventListener('click', () => {
         changeDensity();
         elements.contactsList.classList.add('density');
         for (const e of elements.contactsList.children) { // DOM traversing
-            e.classList.toggle('density');
+            e.classList.add('density');
             e.children[1].classList.add('density');
             // console.log(e.children[1]);
         }
