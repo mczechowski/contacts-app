@@ -17,31 +17,26 @@ const elements = {
 
 //------------------- change list density ------------------------
 elements.hamburger1.addEventListener('click', () => {
-    if (elements.hamburger1.classList.contains('active')) {
-
-    } else {
+    if (!elements.hamburger1.classList.contains('active')) {
         changeDensity();
         elements.contactsList.style.fontSize = '1.9rem';
         for (const e of elements.contactsList.children) { // DOM traversing
-            e.style.margin = '.8rem 0rem';
-            e.children[1].style.display = 'grid';
+            e.classList.toggle('density');
+            e.children[1].classList.toggle('density');
+            // console.log(e)
         }
     }
-
 });
 
 elements.hamburger2.addEventListener('click', () => {
-    if (elements.hamburger2.classList.contains('active')) {
-
-    } else {
+    if (!elements.hamburger2.classList.contains('active')) {
         changeDensity();
         elements.contactsList.style.fontSize = '1.6rem';
         for (const e of elements.contactsList.children) { // DOM traversing
-            console.log(e.children[1]);
-            e.style.margin = '.5rem 0rem';
-            e.children[1].style.display = 'none';
+            e.classList.toggle('density');
+            e.children[1].classList.toggle('density');
+            // console.log(e.children[1]);
         }
-    
     }
 });
 
@@ -52,11 +47,10 @@ const changeDensity = () => {
 
 elements.contactsList.addEventListener('click', e => {
     //dziala na dane z pliku html a nie pobranie z jsona
-    //create high density class in css
     //toggle this class
     console.log(e.target.closest('.contact__item'))
     e.target.closest('.contact__item').style.fontSize = '1.6rem';
-    
+
 });
 
 //---------------------------- get data contacts ------------------------
