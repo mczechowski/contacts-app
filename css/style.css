@@ -207,7 +207,7 @@ main {
           box-shadow: 0 4px 2px -2px #4d5e94;
 }
 
-.contacts .contacts__list .contact__item--list {
+.contacts .contacts__list .contact__item--details {
   background: #ffffff;
   padding: 1.2rem 2rem;
   display: -ms-grid;
@@ -224,37 +224,37 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
-  .contacts .contacts__list .contact__item--list {
+  .contacts .contacts__list .contact__item--details {
     -ms-grid-columns: 3fr 1fr 3fr 2fr;
         grid-template-columns: 3fr 1fr 3fr 2fr;
     font-size: 1.4rem;
     margin: 0.5rem 0rem;
     padding: 1rem 1rem;
   }
-  .contacts .contacts__list .contact__item--list .name {
+  .contacts .contacts__list .contact__item--details .name {
     min-width: 88px;
   }
-  .contacts .contacts__list .contact__item--list .departament {
+  .contacts .contacts__list .contact__item--details .departament {
     min-width: 41px;
   }
 }
 
-.contacts .contacts__list .contact__item--list .hl {
+.contacts .contacts__list .contact__item--details .hl {
   border-bottom: #4d5e94 2px solid;
   text-transform: capitalize;
 }
 
-.contacts .contacts__list .contact__item--list .uppercase {
+.contacts .contacts__list .contact__item--details .uppercase {
   text-transform: uppercase;
 }
 
-.contacts .contacts__list .contact__item--list.sub-list {
+.contacts .contacts__list .contact__item--details.sub-list {
   font-size: 1.6rem;
   padding-top: 0rem;
 }
 
 @media only screen and (max-width: 600px) {
-  .contacts .contacts__list .contact__item--list.sub-list {
+  .contacts .contacts__list .contact__item--details.sub-list {
     display: none;
   }
 }

@@ -12,7 +12,7 @@ const elements = {
     contactItem: document.querySelector('.contact__item'),
     searchInput: document.querySelector('.search__field'),
     errorWarning: document.querySelector('.error__warning'),
-    subList: document.querySelector('.contact__item--list.sub-list'),
+    subList: document.querySelector('.contact__item--details.sub-list'),
 };
 
 //------------------- change list density ------------------------
@@ -87,13 +87,13 @@ getData().then(data => {
         //console.log(person);
         return `
             <div class="contact__item">
-                <ul class="contact__item--list">
+                <ul class="contact__item--details">
                     <li class='name'>${person.name}</li>
                     <li class='departament'>${person.departament}</li>
                     <li class='location'>${person.location}</li>
                     <li class='phone'>${person.phone}</li>
                 </ul>
-                <ul class="contact__item--list sub-list">
+                <ul class="contact__item--details sub-list">
                        <li class="title">${person.title}</li>
                        <li class="group">${person.group}</li>
                        <li class="other">${person.other}</li>
@@ -132,13 +132,13 @@ function displayMatches() {
         const personSecondPhone = person.secondPhone.replace(regex, `<span class="hl">${this.value}</span>`);
         return `
         <div class="contact__item">
-            <ul class="contact__item--list">
+            <ul class="contact__item--details">
                 <li class='name'>${personName}</li>
                 <li class='departament'>${personDepartament}</li>
                 <li class='title'>${person.location}</li>
                 <li class='phone'>${personPhone}</li>
             </ul>
-            <ul class="contact__item--list sub-list">
+            <ul class="contact__item--details sub-list">
                 <li class="title">${person.title}</li>
                 <li class="group">${person.group}</li>
                 <li class="other">${person.other}</li>
