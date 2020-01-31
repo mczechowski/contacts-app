@@ -207,6 +207,10 @@ main {
           box-shadow: 0 4px 2px -2px #4d5e94;
 }
 
+.contacts .contacts__list .contact__item.density {
+  margin: 0.5rem 0rem;
+}
+
 .contacts .contacts__list .contact__item--details {
   background: #ffffff;
   padding: 1.2rem 2rem;
@@ -257,5 +261,9 @@ main {
   .contacts .contacts__list .contact__item--details.sub-list {
     display: none;
   }
+}
+
+.contacts .contacts__list .contact__item--details.sub-list.density {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
