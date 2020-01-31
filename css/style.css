@@ -179,10 +179,6 @@ main {
   font-size: 1.9rem;
 }
 
-.contacts .contacts__list.density {
-  font-size: 1.6rem;
-}
-
 @media only screen and (max-width: 600px) {
   .contacts .contacts__list {
     padding-top: 11rem;
@@ -213,6 +209,7 @@ main {
 
 .contacts .contacts__list .contact__item.density {
   margin: 0.5rem 0rem;
+  font-size: 1.6rem;
 }
 
 .contacts .contacts__list .contact__item--details {
