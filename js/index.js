@@ -19,10 +19,10 @@ const elements = {
 elements.hamburger1.addEventListener('click', () => {
     if (!elements.hamburger1.classList.contains('active')) {
         changeDensity();
-        elements.contactsList.style.fontSize = '1.9rem';
+        elements.contactsList.classList.remove('density');
         for (const e of elements.contactsList.children) { // DOM traversing
             e.classList.toggle('density');
-            e.children[1].classList.toggle('density');
+            e.children[1].classList.remove('density');
             // console.log(e)
         }
     }
@@ -31,10 +31,10 @@ elements.hamburger1.addEventListener('click', () => {
 elements.hamburger2.addEventListener('click', () => {
     if (!elements.hamburger2.classList.contains('active')) {
         changeDensity();
-        elements.contactsList.style.fontSize = '1.6rem';
+        elements.contactsList.classList.add('density');
         for (const e of elements.contactsList.children) { // DOM traversing
             e.classList.toggle('density');
-            e.children[1].classList.toggle('density');
+            e.children[1].classList.add('density');
             // console.log(e.children[1]);
         }
     }
@@ -46,11 +46,9 @@ const changeDensity = () => {
 };
 
 elements.contactsList.addEventListener('click', e => {
-    //dziala na dane z pliku html a nie pobranie z jsona
-    //toggle this class
     console.log(e.target.closest('.contact__item'))
-    e.target.closest('.contact__item').style.fontSize = '1.6rem';
-
+    e.target.closest('.contact__item').classList.toggle('density');
+    e.target.closest('.contact__item').children[1].classList.toggle('density');
 });
 
 //---------------------------- get data contacts ------------------------

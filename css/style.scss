@@ -148,6 +148,9 @@ main {
         padding-top: 9rem;
         margin: 0 0.5rem;
         font-size: $main-fontSize;
+        &.density {
+            font-size: 1.6rem;
+        }
         //transition: all 0.2s ease-in-out;
         @media only screen and (max-width: 600px) {
             padding-top: 11rem;
