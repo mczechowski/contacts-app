@@ -16,6 +16,7 @@ const elements = {
 };
 
 //------------------- change list density ------------------------
+let state;
 elements.hamburger1.addEventListener('click', () => {
     if (!elements.hamburger1.classList.contains('active')) {
         changeDensity();
@@ -25,6 +26,8 @@ elements.hamburger1.addEventListener('click', () => {
             e.children[1].classList.remove('density');
             // console.log(e)
         }
+        state = 0;
+        console.log(state)
     }
 });
 
@@ -37,6 +40,8 @@ elements.hamburger2.addEventListener('click', () => {
             e.children[1].classList.add('density');
             // console.log(e.children[1]);
         }
+        state = 1;
+        console.log(state)
     }
 });
 
@@ -123,14 +128,14 @@ function displayMatches() {
         const personPhone = person.phone.replace(regex, `<span class="hl">${this.value}</span>`);
         const personSecondPhone = person.secondPhone.replace(regex, `<span class="hl">${this.value}</span>`);
         return `
-        <div class="contact__item">
+        <div class="contact__item ${state == 1 ? 'density' : ''}">
             <ul class="contact__item--details">
                 <li class='name'>${personName}</li>
                 <li class='departament'>${personDepartament}</li>
                 <li class='title'>${person.location}</li>
                 <li class='phone'>${personPhone}</li>
             </ul>
-            <ul class="contact__item--details sub-list">
+            <ul class="contact__item--details sub-list ${state == 1 ? 'density' : ''}">
                 <li class="title">${person.title}</li>
                 <li class="group">${person.group}</li>
                 <li class="other">${person.other}</li>
