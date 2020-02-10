@@ -59,6 +59,29 @@ elements.contactsList.addEventListener('click', e => {
     e.target.closest('.contact__item').classList.toggle('density');
     e.target.closest('.contact__item').children[1].classList.toggle('density');
 });
+//---------------------------- infinity scroll ------------------------
+function getDocumentHeight() {
+	const body = document.body;
+	const html = document.documentElement;
+	
+	return Math.max(
+		body.scrollHeight, body.offsetHeight,
+		html.clientHeight, html.scrollHeight, html.offsetHeight
+	);
+};
+
+function getScrollTop() {
+	return (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+}
+let resNum=50;
+window.onscroll = function() {
+	if (getScrollTop() < getDocumentHeight() - window.innerHeight) return;
+    console.log('page')
+    resNum+=50;
+    console.log(resNum)
+    //change for pagination after 50 or 100 rows
+};
+
 
 //---------------------------- get data contacts ------------------------
 async function getData() {
@@ -84,7 +107,7 @@ async function getData() {
 let contacts;
 getData().then(data => {
     contacts = data;
-    let parialContacts = contacts.slice(0, 20)
+    let parialContacts = contacts.slice(0, resNum)
     console.log(data);
     const markup = parialContacts.map(persona => {
         return `
@@ -126,10 +149,10 @@ function displayMatches() {
     // console.log(this.value);
     clearContactsList();
     const matchResult = findMatches(this.value, contacts);
-    partialMatch = matchResult.slice(0, 20);
+    partialViewResult = matchResult.slice(0, 20);
     console.log(matchResult);
-    console.log(partialMatch);
-    const markup = partialMatch.map(person => {
+    console.log(partialViewResult);
+    const markup = partialViewResult.map(person => {
         const regex = RegExp(this.value, 'gi');
         const personName = person.name.replace(regex, `<span class="hl">${this.value}</span>`);
         const personLocation = person.location.replace(regex, `<span class="hl uppercase">${this.value}</span>`);
