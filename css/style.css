@@ -228,6 +228,11 @@ main {
   cursor: pointer;
 }
 
+.contacts .contacts__list .contact__item--details .name, .contacts .contacts__list .contact__item--details .location {
+  position: relative;
+  top: 1.5rem;
+}
+
 @media only screen and (max-width: 600px) {
   .contacts .contacts__list .contact__item--details {
     -ms-grid-columns: 3fr 1fr 3fr 2fr;
@@ -241,6 +246,10 @@ main {
   }
   .contacts .contacts__list .contact__item--details .departament {
     min-width: 41px;
+  }
+  .contacts .contacts__list .contact__item--details .name, .contacts .contacts__list .contact__item--details .location {
+    position: relative;
+    top: 0rem;
   }
 }
 
