@@ -65,7 +65,7 @@ async function getData() {
     try {
         const result = await fetch('/data/testContacts.json');
         const resultJson = await result.json();
-        console.log(resultJson);
+        //console.log(resultJson);
         return (resultJson);
 
 
@@ -84,20 +84,22 @@ async function getData() {
 let contacts;
 getData().then(data => {
     contacts = data;
-    const markup = contacts.map(person => {
+    let parialContacts = contacts.slice(0, 20)
+    console.log(data);
+    const markup = parialContacts.map(persona => {
         return `
             <div class="contact__item">
                 <ul class="contact__item--details">
-                    <li class='name'>${person.name}</li>
-                    <li class='departament'>${person.departament}</li>
-                    <li class='location'>${person.location}</li>
-                    <li class='phone'>${person.phone}</li>
+                    <li class='name'>${persona.name}</li>
+                    <li class='departament'>${persona.departament}</li>
+                    <li class='location'>${persona.location}</li>
+                    <li class='phone'>${persona.phone}</li>
                 </ul>
                 <ul class="contact__item--details sub-list">
                     <li class="title"></li>
-                    <li class="group">${person.group}</li>
+                    <li class="group">${persona.group}</li>
                     <li></li>
-                    <li class="secondPhone">${person.secondPhone}</li>
+                    <li class="secondPhone">${persona.secondPhone}</li>
                 </ul>
             </div>  
         `;
@@ -113,6 +115,7 @@ const clearContactsList = () => {
 }
 
 const findMatches = (wordToMatch, contacts) => {
+    console.log(contacts);
     return contacts.filter(person => {
         const regex = new RegExp(wordToMatch, 'gi');
         return person.name.match(regex) || person.location.match(regex) || person.phone.match(regex) || person.secondPhone.match(regex)
@@ -123,8 +126,10 @@ function displayMatches() {
     // console.log(this.value);
     clearContactsList();
     const matchResult = findMatches(this.value, contacts);
+    partialMatch = matchResult.slice(0, 20);
     console.log(matchResult);
-    const markup = matchResult.map(person => {
+    console.log(partialMatch);
+    const markup = partialMatch.map(person => {
         const regex = RegExp(this.value, 'gi');
         const personName = person.name.replace(regex, `<span class="hl">${this.value}</span>`);
         const personLocation = person.location.replace(regex, `<span class="hl uppercase">${this.value}</span>`);
