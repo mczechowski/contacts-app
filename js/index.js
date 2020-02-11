@@ -58,6 +58,8 @@ elements.contactsList.addEventListener('click', e => {
     console.log(e.target.closest('.contact__item'))
     e.target.closest('.contact__item').classList.toggle('density');
     e.target.closest('.contact__item').children[1].classList.toggle('density');
+    e.target.closest('.contact__item').children[0].children[0].classList.toggle('name')
+    e.target.closest('.contact__item').children[0].children[2].classList.toggle('locations')
 });
 
 //---------------------------- get data contacts ------------------------
