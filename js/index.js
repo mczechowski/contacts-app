@@ -16,7 +16,7 @@ const elements = {
 };
 
 //------------------- change list density ------------------------
-let state;
+let state=0;
 elements.hamburger1.addEventListener('click', () => {
     if (!elements.hamburger1.classList.contains('active')) {
         changeDensity();
@@ -59,7 +59,8 @@ elements.contactsList.addEventListener('click', e => {
     e.target.closest('.contact__item').classList.toggle('density');
     e.target.closest('.contact__item').children[1].classList.toggle('density');
     e.target.closest('.contact__item').children[0].children[0].classList.toggle('name')
-    e.target.closest('.contact__item').children[0].children[2].classList.toggle('locations')
+    e.target.closest('.contact__item').children[0].children[2].classList.toggle('location')
+    console.log(e.target.closest('.contact__item').children[0].children[2])
 });
 
 //---------------------------- get data contacts ------------------------
@@ -90,9 +91,9 @@ getData().then(data => {
         return `
             <div class="contact__item">
                 <ul class="contact__item--details">
-                    <li class='name'>${person.name}</li>
+                    <li ${state == 0 ? 'class="name"' : ''}>${person.name}</li>
                     <li class='departament'>${person.departament}</li>
-                    <li class='location'>${person.location}</li>
+                    <li ${state == 0 ? 'class="location"' : ''}>${person.location}</li>
                     <li class='phone'>${person.phone}</li>
                 </ul>
                 <ul class="contact__item--details sub-list">
@@ -135,9 +136,9 @@ function displayMatches() {
         return `
         <div class="contact__item ${state == 1 ? 'density' : ''}">
             <ul class="contact__item--details">
-                <li class='name'>${personName}</li>
+                <li ${state == 0 ? 'class="name"' : ''}>${personName}</li>
                 <li class='departament'>${person.departament}</li>
-                <li class='location'>${personLocation}</li>
+                <li ${state == 0 ? 'class="location"' : ''}>${personLocation}</li>
                 <li class='phone'>${personPhone}</li>
             </ul>
             <ul class="contact__item--details sub-list ${state == 1 ? 'density' : ''}">
